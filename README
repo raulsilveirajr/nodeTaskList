@@ -1,0 +1,54 @@
+yarn init -y
+yarn add express
+yarn add nodemon sucrase -D
+yarn add dotenv
+yarn add cors
+yarn add mongo mongoose
+yarn add sequelize
+yarn add sequelize-cli -D
+yarn add pg pg-hstore
+yarn add bcryptjs jsonwebtoken
+yarn add yup
+
+--
+
+Instalar extensao "Editor config"
+Copiar arquivo .editorconfig
+
+Instalar ESLint - yarn add eslint -D
+Instalar extensao "ESLint"
+Iniciar o ESLint - yarn eslint --init
+
+Se der problema
+  Apagar pasta node_modules
+  Atualizar dependencias com o yarn - yarn
+  Iniciar novamente o ESLint - yarn eslint --init
+
+Apagar o arquivo package-lock.json
+Atualizar dependencias com o yarn - yarn
+
+Ctrl+Shift+P
+Abrir "Open user settings (JSON)"
+Adicionar as configurações abaixo
+
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+
+Instalar extensao "Prettier"
+Iniciar o Prettier - yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+
+Copiar arquivo .eslintrc.js
+Copiar arquivo .prettierrc
+
+Se desejar rodar um "fix" manualmente, rodar o comando - yarn eslint --fix src --ext .js
+
+---
+
+Migration
+yarn sequelize migration:create --name=create-users
+
+Run migrations - yarn sequelize db:migrate
+Reset migrations - yarn sequelize db:migrate:reset
+Undo all migrations - yarn sequelize db:migrate:undo:all

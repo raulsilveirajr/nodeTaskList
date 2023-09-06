@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  tasklist-postgresql:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: example
+  tasklist-mongo:
+    image: mongo:4.2.6
+    container_name: tasklist-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - task-list-local-db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: guest
+      MONGO_INITDB_ROOT_PASSWORD: guest
+      MONGO_INITDB_DATABASE: task-list
+    networks:
+      - task-list-local-net
+  tasklist-pgadmin:
+    container_name: tasklist-pg-admin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=a@b.com
+      - PGADMIN_DEFAULT_PASSWORD=123
+    ports:
+      - '5050:80'
+
+volumes:
+  task-list-local-db:
+
+networks:
+  task-list-local-net:
+    driver: bridge
