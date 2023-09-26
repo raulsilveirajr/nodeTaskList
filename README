@@ -49,6 +49,7 @@ Se desejar rodar um "fix" manualmente, rodar o comando - yarn eslint --fix src -
 Migration
 yarn sequelize migration:create --name=create-users
 
+Create database - yarn sequelize-cli db:create
 Run migrations - yarn sequelize db:migrate
 Reset migrations - yarn sequelize db:migrate:reset
 Undo all migrations - yarn sequelize db:migrate:undo:all
