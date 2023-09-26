@@ -3,6 +3,7 @@ version: '3.1'
 services:
   tasklist-postgresql:
     image: postgres
+    container_name: tasklist-postgresql
     ports:
       - 5432:5432
     environment:
@@ -21,7 +22,7 @@ services:
     networks:
       - task-list-local-net
   tasklist-pgadmin:
-    container_name: tasklist-pg-admin
+    container_name: tasklist-pgadmin
     image: dpage/pgadmin4
     environment:
       - PGADMIN_DEFAULT_EMAIL=a@b.com
